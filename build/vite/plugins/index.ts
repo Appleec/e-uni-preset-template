@@ -8,6 +8,7 @@ type ViteEnv = ImportMetaEnv;
 // Plugins
 import { configAutoImport } from './auto-import';
 import { configComponentsPlugin } from './components';
+import { configHtmlPlugin } from './html';
 
 export const createVitePlugin = (env: ViteEnv, isBuild: boolean) => {
     const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -22,6 +23,10 @@ export const createVitePlugin = (env: ViteEnv, isBuild: boolean) => {
     vitePlugins.push(configAutoImport());
     // unplugin-vue-components/vite
     vitePlugins.push(configComponentsPlugin());
+
+    if (isBuild) {
+        vitePlugins.push(configHtmlPlugin(env, isBuild));
+    }
 
     return vitePlugins;
 }
