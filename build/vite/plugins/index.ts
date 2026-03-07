@@ -5,6 +5,10 @@ import { type PluginOption } from 'vite';
 // Type
 type ViteEnv = ImportMetaEnv;
 
+// Plugins
+import { configAutoImport } from './auto-import';
+import { configComponentsPlugin } from './components';
+
 export const createVitePlugin = (env: ViteEnv, isBuild: boolean) => {
     const vitePlugins: (PluginOption | PluginOption[])[] = [
         /**
@@ -13,6 +17,11 @@ export const createVitePlugin = (env: ViteEnv, isBuild: boolean) => {
          */
         uni(),
     ];
+
+    // unplugin-auto-import/vite'
+    vitePlugins.push(configAutoImport());
+    // unplugin-vue-components/vite
+    vitePlugins.push(configComponentsPlugin());
 
     return vitePlugins;
 }

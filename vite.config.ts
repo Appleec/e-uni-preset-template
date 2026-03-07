@@ -2,17 +2,13 @@
 import { defineConfig, loadEnv, type UserConfigExport } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 
+// Utils
+import { parseEnv } from './src/utils';
+
 // Configuration
 import { createViteProxy } from './build/vite/proxy';
 import { createVitePlugin } from './build/vite/plugins';
 import { createViteBuild } from './build/vite/build';
-
-function parseEnv(value: any) {
-  if (value === 'true') return true;
-  if (value === 'false') return false;
-  if (!isNaN(value)) return Number(value);
-  return value;
-}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
