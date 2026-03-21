@@ -17,3 +17,14 @@ export const getCurrentCommitId = () => execSync('git', [
     '--short',
     'HEAD',
 ], { abbrev: true });
+
+/**
+ * Parse environment variable
+ * @param value
+ */
+export function parseEnv(value: any) {
+    if (value === 'true') return true;
+    if (value === 'false') return false;
+    if (!isNaN(value)) return Number(value);
+    return value;
+}

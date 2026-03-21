@@ -3,7 +3,7 @@ import { defineConfig, loadEnv, type UserConfigExport } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 
 // Utils
-import { parseEnv } from './src/utils';
+import { parseEnv } from './build/utils';
 
 // Configuration
 import { createViteProxy } from './build/vite/proxy';

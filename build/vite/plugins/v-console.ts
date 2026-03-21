@@ -1,6 +1,11 @@
-import path from 'path';
+// Imports
+import path from 'node:path';
 import { viteVConsole } from 'vite-plugin-vconsole';
 
+// Utils
+import { parseEnv } from '../../utils';
+
+// Type
 type ViteEnv = ImportMetaEnv;
 
 /**
@@ -17,7 +22,7 @@ export const configVConsolePlugin = (env: ViteEnv) => {
     /**
      * enabled： 是否启用插件
      */
-    enabled: env.VITE_USE_VCONSOLE === 'true',
+    enabled: parseEnv(env.VITE_USE_VCONSOLE),
     /**
      * vconsole 配置
      */

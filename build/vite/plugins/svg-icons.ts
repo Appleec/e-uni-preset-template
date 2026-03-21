@@ -1,4 +1,5 @@
-import path from 'path';
+// Imports
+import path from 'node:path';
 import { createSvgIconsPlugin as svgIconsPlugin } from 'vite-plugin-svg-icons';
 
 /**
