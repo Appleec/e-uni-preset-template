@@ -22,6 +22,7 @@ export default defineConfig(({ command, mode }) => {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
+    // define: {},
     server: {
       host: '0.0.0.0',
       port: 8888, // Set the service startup port number

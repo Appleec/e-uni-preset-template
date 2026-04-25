@@ -3,7 +3,7 @@ import type { PluginOption } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 
 // Utils
-import { getCurrentBranch, getCurrentCommitId } from '../../utils';
+import { getCurrentBranch, getCurrentCommitId } from '@elinzy/git';
 
 // Type
 type ViteEnv = ImportMetaEnv;
@@ -21,10 +21,10 @@ export function configHtmlPlugin(env: ViteEnv, isBuild: boolean) {
         {
           tag: 'meta',
           attrs: {
-            'data-env': env.NODE_ENV || 'unknown',
-            'data-branch': getCurrentBranch() || 'unknown',
-            'data-commit-id': getCurrentCommitId() || 'unknown',
-            'data-build-timestamp': Date.now() || 'unknown',
+            'data-env': env.VITE_APP_MODE || 'unknown',
+            'data-refs': getCurrentBranch() || 'unknown',
+            'data-hash': getCurrentCommitId() || 'unknown',
+            'data-timestamp': Date.now() || 'unknown',
           },
           injectTo: 'head-prepend',
         }

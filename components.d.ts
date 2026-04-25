@@ -12,7 +12,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ICustomArrowRight: typeof import('~icons/custom/arrow-right')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./src/components/svg-icon/SvgIcon.vue')['default']
@@ -21,7 +20,6 @@ declare module 'vue' {
 
 // For TSX support
 declare global {
-  const ICustomArrowRight: typeof import('~icons/custom/arrow-right')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
   const SvgIcon: typeof import('./src/components/svg-icon/SvgIcon.vue')['default']
